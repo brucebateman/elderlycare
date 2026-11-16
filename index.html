@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ElderlyCare.io — How We Will Care for Our Elders in 2030 and Beyond</title>
+<meta name="description" content="Robots, physical AI, ambient sensing and medical breakthroughs: a sourced, realistic view of elder care from 2030 to 2035.">
+<meta property="og:title" content="ElderlyCare.io — Elder care in 2030 and beyond">
+<meta property="og:description" content="In 2030 your parents' care will be invisible. In 2035 it will start to walk.">
+<meta property="og:url" content="https://www.elderlycare.io">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1d2321; --muted:#56605c; --paper:#faf7f2; --card:#ffffff;
+  --line:#e4ddd2; --accent:#2f6f5e; --accent-soft:#e3efe9;
+  --warm:#c0643b; --warm-soft:#f7e6dc; --gold:#b8892b;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.65 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700}
+h2{font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:600}
+h3{font-size:1.25rem;font-weight:600}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{padding:80px 0;border-top:1px solid var(--line)}
+.kicker{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--warm);font-weight:600;margin-bottom:.6em}
+.lead{font-size:1.2rem;color:var(--muted);max-width:760px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(250,247,242,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:Fraunces,serif;font-weight:700;font-size:1.25rem;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--accent)}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font-size:.9rem}
+nav ul a{text-decoration:none;color:var(--muted)}
+nav ul a:hover{color:var(--accent)}
+@media(max-width:900px){nav ul{display:none}}
+
+/* hero */
+.hero{padding:110px 0 90px;border-top:none;background:
+  radial-gradient(circle at 85% 20%,var(--accent-soft) 0,transparent 45%),
+  radial-gradient(circle at 10% 90%,var(--warm-soft) 0,transparent 40%)}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-ghost{border:1.5px solid var(--accent);color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:56px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.stat b{display:block;font-family:Fraunces,serif;font-size:2rem;color:var(--accent);line-height:1.1}
+.stat span{font-size:.92rem;color:var(--muted)}
+
+/* confidence tags */
+.tag{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;vertical-align:middle;margin-left:6px;white-space:nowrap}
+.t-fact{background:#dfeee6;color:#24584a}
+.t-fcst{background:#e7e5f6;color:#4a4290}
+.t-syn{background:#f6ead2;color:#7a5513}
+.t-vend{background:#f7dfd6;color:#8a3b1d}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:.85rem;color:var(--muted);margin-top:18px;align-items:center}
+.legend .tag{margin-left:0}
+
+/* cards & grids */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.card.accent{border-top:5px solid var(--accent)}
+.card.warm{border-top:5px solid var(--warm)}
+.card.gold{border-top:5px solid var(--gold)}
+.card ul{padding-left:1.1em;margin:.4em 0 0}
+.card li{margin-bottom:.35em}
+.note{font-size:.88rem;color:var(--muted)}
+blockquote{margin:24px 0;padding:18px 24px;border-left:4px solid var(--warm);background:var(--warm-soft);border-radius:0 12px 12px 0;font-family:Fraunces,serif;font-size:1.25rem}
+
+/* tables */
+.tbl{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f2ede4;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em}
+tr:last-child td{border-bottom:none}
+
+/* timeline */
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;margin-top:30px;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.layer{padding:26px;background:var(--card)}
+.layer:nth-child(2){background:#f3f8f5}
+.layer:nth-child(3){background:var(--accent-soft)}
+.layer .when{font-family:Fraunces,serif;font-size:1.5rem;color:var(--accent);font-weight:700}
+
+/* day in life */
+.day{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:800px){.day{grid-template-columns:1fr}}
+.day .card h3{font-size:1.6rem}
+.day .y2030 h3{color:var(--accent)}
+.day .y2035 h3{color:var(--warm)}
+
+/* contrarian */
+.takes{counter-reset:t}
+.take{position:relative;padding:22px 22px 22px 74px;background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:14px}
+.take::before{counter-increment:t;content:counter(t);position:absolute;left:22px;top:20px;width:36px;height:36px;border-radius:50%;background:var(--warm);color:#fff;font-weight:700;display:grid;place-items:center;font-family:Fraunces,serif}
+
+/* sister sites */
+.sisters{background:var(--ink);color:#f3efe8}
+.sisters h2,.sisters h3{color:#fff}
+.sisters .lead{color:#c9c3b8}
+.sister{display:block;text-decoration:none;color:#f3efe8;border:1px solid #3a4441;border-radius:18px;padding:28px;transition:.2s}
+.sister:hover{border-color:#8fc7b5;background:#252c2a}
+.sister .url{font-family:Fraunces,serif;font-size:1.7rem;color:#8fc7b5;font-weight:700}
+.sister ul{padding-left:1.1em;color:#c9c3b8;font-size:.95rem}
+
+/* sources */
+.sources ol{font-size:.86rem;color:var(--muted);columns:2;column-gap:40px;padding-left:1.2em}
+@media(max-width:800px){.sources ol{columns:1}}
+.sources li{break-inside:avoid;margin-bottom:.4em}
+footer{padding:40px 0;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Elderly<span>Care</span>.io</a>
+    <ul>
+      <li><a href="#gap">Care gap</a></li>
+      <li><a href="#physical-ai">Robots vs Physical AI</a></li>
+      <li><a href="#tasks">What they'll do</a></li>
+      <li><a href="#medicine">Medicine</a></li>
+      <li><a href="#day">A day in 2030/2035</a></li>
+      <li><a href="#contrarian">Contrarian takes</a></li>
+      <li><a href="#future">2030 · 2035</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="kicker">Elder care · 2030 – 2035</div>
+    <h1>In 2030 your parents' care will be <em>invisible</em>.<br>In 2035 it will start to <em>walk</em>.</h1>
+    <p class="lead">There will be too few human carers, and that will not change, so the gap gets filled in layers. Sensors and AI in the walls come first. Task robots follow. Autonomous physical AI bodies arrive last, and they go to care homes before they go to living rooms. Here is what is real, what is likely, and what is still hype.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#physical-ai">Robots vs Physical AI</a>
+      <a class="btn btn-ghost" href="#day">A day in 2030 vs 2035</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>~265M</b><span>people aged 80+ worldwide by the mid-2030s, more than all infants (UN WPP 2024)</span></div>
+      <div class="stat"><b>2.72M</b><span>care workers Japan says it needs by FY2040, 570k more than FY2022 (MHLW)</span></div>
+      <div class="stat"><b>+13.5M</b><span>long-term-care workers OECD countries need by 2040 just to keep today's ratio (OECD)</span></div>
+      <div class="stat"><b>~10%</b><span>of Japanese care homes had any care robot in 2019; lifting robots only 2.3%</span></div>
+    </div>
+    <div class="legend">How to read this site:
+      <span class="tag t-fact">Sourced</span> published data
+      <span class="tag t-fcst">Forecast</span> named-source projection
+      <span class="tag t-vend">Vendor claim</span> company-reported, not independently checked
+      <span class="tag t-syn">Our view</span> analysis and synthesis
+    </div>
+  </div>
+</header>
+
+<!-- CARE GAP -->
+<section id="gap">
+  <div class="wrap">
+    <div class="kicker">01 · The care gap</div>
+    <h2>The demand is already born. The carers are not.</h2>
+    <p class="lead">Everyone who will be 80+ in 2035 is alive today, so these are among the safest numbers in any forecast. The open question is who looks after them.</p>
+    <div class="tbl"><table>
+      <tr><th>Where</th><th>2030</th><th>2035</th><th>Source</th></tr>
+      <tr><td>World, 80+</td><td>—</td><td>~265 million by mid-2030s</td><td>UN World Population Prospects 2024 <span class="tag t-fact">Sourced</span></td></tr>
+      <tr><td>EU-27, 65+</td><td>107.2M (23.7%)</td><td>115.4M (25.5%)</td><td>Eurostat EUROPOP2023 <span class="tag t-fcst">Forecast</span></td></tr>
+      <tr><td>EU-27, 80+</td><td>31.1M (6.9%)</td><td>35.1M (7.8%)</td><td>Eurostat EUROPOP2023 <span class="tag t-fcst">Forecast</span></td></tr>
+      <tr><td>Japan, 65+</td><td>36.96M (30.8%)</td><td>37.73M (32.3%)</td><td>IPSS 2023 medium projection <span class="tag t-fcst">Forecast</span></td></tr>
+      <tr><td>United States, 65+</td><td>71.2M (85+: 8.6M)</td><td>—</td><td>US Census NP2023 via agingstats.gov <span class="tag t-fcst">Forecast</span></td></tr>
+      <tr><td>China, 60+</td><td>—</td><td>&gt;400M (&gt;30%)</td><td>National Health Commission <span class="tag t-fcst">Forecast</span></td></tr>
+      <tr><td>Taiwan, 65+</td><td>—</td><td>28.7% of 21.97M</td><td>National Development Council <span class="tag t-fcst">Forecast</span></td></tr>
+      <tr><td>South Korea, 65+</td><td>—</td><td>30% reached in 2036</td><td>KOSTAT medium scenario <span class="tag t-fcst">Forecast</span></td></tr>
+    </table></div>
+    <div class="grid g3">
+      <div class="card accent"><h3>Labor, not money, is the limit</h3><p>Japan and Taiwan can pay for care but cannot staff it. In Japan, care jobs had about 3.9 openings per applicant in August 2026, against about 1.1 for all jobs. Care workers earn roughly 79% of the average wage. <span class="tag t-fact">Sourced, secondary</span></p></div>
+      <div class="card warm"><h3>Families carry the hidden load</h3><p>In the EU, unpaid family care is worth about 2.5% of GDP. That is more than public long-term-care spending, which is forecast to rise from 1.7% to 2.6% of GDP by 2070. <span class="tag t-fact">Sourced (EC via OECD)</span></p></div>
+      <div class="card gold"><h3>Taiwan's clock is fast</h3><p>Taiwan has about 3.2 workers per older person in 2026, and the ratio is falling. Its dementia population is about 350k and is expected to pass 470k by 2031. <span class="tag t-fcst">Forecast (NDC / MOHW)</span></p></div>
+    </div>
+    <p class="note" style="margin-top:18px">Note: Japan's 570k figure is a <em>need</em> calculated on today's care model. It is not a forecast of unfilled jobs, and no official number exists for how many of those jobs technology could remove.</p>
+  </div>
+</section>
+
+<!-- ROBOTS VS PHYSICAL AI -->
+<section id="physical-ai">
+  <div class="wrap">
+    <div class="kicker">02 · Know the difference</div>
+    <h2>A robot is not the same as physical AI</h2>
+    <p class="lead">People say "robot" for both, but they are different machines. The difference decides what can safely care for a person.</p>
+    <blockquote>Physical AI is a device with an autonomous brain. It perceives, reasons, plans and acts on its own, and it recovers when the world changes. A conventional robot follows a fixed program or a human operator.</blockquote>
+    <div class="grid g3">
+      <div class="card warm">
+        <h3>Conventional robot</h3>
+        <p><strong>Body, no brain of its own.</strong> It repeats the same steps very reliably. It gets confused when the room, the person or the task changes.</p>
+        <ul><li>PARO therapy seal</li><li>Lifting and transfer robots (RIBA/Robear, Fuji "Hug")</li><li>Panasonic Resyone bed-to-wheelchair</li><li>Automated pill dispensers</li><li>Any humanoid while a remote human drives it</li></ul>
+      </div>
+      <div class="card gold">
+        <h3>Ambient AI</h3>
+        <p><strong>Brain, no body.</strong> It senses and reasons but cannot move anything. This third category will do most of the work in 2030.</p>
+        <ul><li>mmWave radar fall detection (no camera)</li><li>ElliQ-type voice companions</li><li>Remote patient monitoring, wearables</li><li>LLM health and memory agents</li></ul>
+      </div>
+      <div class="card accent">
+        <h3>Physical AI</h3>
+        <p><strong>Brain plus body.</strong> An on-board foundation model (vision-language-action or world model) sees the scene, understands the goal, plans and acts, and recovers from surprises.</p>
+        <ul><li>Foxconn/Kawasaki Nurabot (hospital wards, Taiwan)</li><li>Fourier GR-3 Care-bot</li><li>Figure 03 with Helix</li><li>1X NEO, when it runs autonomously</li><li>Zuowei "Tianshu"/"Tianji" nursing humanoids (China)</li></ul>
+      </div>
+    </div>
+    <div class="tbl"><table>
+      <tr><th></th><th>Conventional care robot</th><th>Physical AI care system</th></tr>
+      <tr><td><strong>Control</strong></td><td>Fixed program or human teleoperation</td><td>On-board AI model perceives, plans, acts, recovers</td></tr>
+      <tr><td><strong>Compute</strong></td><td>Microcontroller / small chip</td><td>NVIDIA Jetson Orin/Thor class, 40–130 W, running inside a 500–1,000 W robot</td></tr>
+      <tr><td><strong>Why on-board?</strong></td><td>—</td><td>Control loops need ~10 ms; a cloud round trip takes 50–200 ms. Video and health data should also stay in the home.</td></tr>
+      <tr><td><strong>How it fails</strong></td><td>Brittle; often adds staff work</td><td>Makes probabilistic mistakes, so it needs a hard safety envelope</td></tr>
+      <tr><td><strong>Safety rules</strong></td><td>ISO 13482 (2014)</td><td>ISO 13482 2nd edition (final ballot Sep 2026), EU AI Act high-risk rules from Dec 2027 / Aug 2028</td></tr>
+      <tr><td><strong>Evidence</strong></td><td>Decades of pilots, weak adoption</td><td>Months of hospital data, almost no home data</td></tr>
+    </table></div>
+    <div class="card" style="background:var(--warm-soft);border-color:#ecd2c3">
+      <h3>The teleoperation catch</h3>
+      <p>A humanoid that a remote person is steering is a <em>conventional</em> robot at that moment, even if it looks futuristic. The first home humanoids, such as 1X NEO, rely on remote human operators for difficult tasks. So the useful question is not "is it autonomous?" but <strong>"what share of task time is autonomous?"</strong> <span class="tag t-syn">Our view</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- LAYERS -->
+<section id="layers">
+  <div class="wrap">
+    <div class="kicker">03 · How it arrives</div>
+    <h2>Three layers, not one robot</h2>
+    <p class="lead">The limit is not how smart the AI is. It is safety validation, reimbursement, unit cost and fitting into how carers actually work.</p>
+    <div class="layers">
+      <div class="layer"><div class="when">Now</div><h3>Sensors &amp; software</h3><p>Monitoring, fall detection, voice agents, facility logistics robots. In Japan, about 47% of surveyed facilities already use monitoring devices. <span class="tag t-fact">Sourced (MHLW 2026)</span></p></div>
+      <div class="layer"><div class="when">2027–2030</div><h3>Task robots</h3><p>Mobility assist, transfer support, rehabilitation exoskeletons, hospital delivery robots, night patrols. <span class="tag t-fcst">Forecast</span></p></div>
+      <div class="layer"><div class="when">2030+</div><h3>Contact-care humanoids</h3><p>Humanoids in selected roles, where the economics and safety certification both work out. Institutions in Japan, China and Taiwan go first. <span class="tag t-fcst">Forecast</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TASKS -->
+<section id="tasks">
+  <div class="wrap">
+    <div class="kicker">04 · What robots and physical AI will actually do</div>
+    <h2>Task by task: 2030 vs 2035</h2>
+    <p class="lead">Look at the failures first. In one Japanese care home, staff rejected a lifting robot because it moved residents "like a piece of luggage" (James Wright, <em>Robots Won't Save Japan</em>, 2023). Many purchased robots were used for a few weeks and then locked away. Adoption is high for sensors and low for robots that touch people. That split is the key fact.</p>
+    <div class="tbl"><table>
+      <tr><th>Task</th><th>2030 — likely</th><th>2035 — plausible</th></tr>
+      <tr><td><strong>Lifting &amp; transfer</strong></td><td>Powered lifts and bed-to-chair systems in institutions; caregiver exoskeletons; little home use</td><td>Physical-AI transfer assist in certified Japanese and Chinese institutions</td></tr>
+      <tr><td><strong>Mobility</strong></td><td>Rehab exoskeletons standard in clinics (Fourier, CYBERDYNE)</td><td>Consumer fall-prevention wearables and soft exosuits</td></tr>
+      <tr><td><strong>Falls</strong></td><td>Camera-free mmWave radar as default in care homes and many homes</td><td>Prediction from gait drift, not just detection</td></tr>
+      <tr><td><strong>Night patrol</strong></td><td>Sensors plus mobile robot patrols in Japanese and Taiwanese facilities</td><td>Linked to robots that can respond physically</td></tr>
+      <tr><td><strong>Medication</strong></td><td>Smart dispensers plus remote monitoring; hospital delivery robots (Nurabot, Diligent Moxi)</td><td>Home robot fetches and verifies a dose</td></tr>
+      <tr><td><strong>Feeding, bathing, toileting</strong></td><td>Mostly human, with assistive devices</td><td>First narrow pilots; dexterity and liability are the limits</td></tr>
+      <tr><td><strong>Chores</strong></td><td>Early adopters with teleop-assisted humanoids; robot vacuums</td><td>Consumer humanoids under about $20k doing laundry and tidying semi-autonomously</td></tr>
+      <tr><td><strong>Company &amp; cognition</strong></td><td>ElliQ-type agents, LLM companions, PARO in dementia care</td><td>Embodied companions with memory and health coaching</td></tr>
+    </table></div>
+
+    <h3 style="margin-top:40px">Who is building it (status, November 2026)</h3>
+    <div class="grid g2">
+      <div class="card"><h3>Foxconn Nurabot · Taiwan</h3><p>Built with Kawasaki and Taichung Veterans General Hospital on NVIDIA Jetson Orin. Foxconn reports 75–80 tasks a day and about 30% less nursing workload, with 2–3 hours a day saved per nurse. It is expanding to more hospitals and long-term-care sites under "Healthy Taiwan." <span class="tag t-vend">Vendor claim</span></p></div>
+      <div class="card"><h3>1X NEO · home humanoid</h3><p>$20,000, or $499/month. Preorders opened October 2025. A factory with 10,000-unit-a-year capacity opened April 2026. As of mid-October 2026 we found no confirmed customer deliveries, and the robot relies on remote human operators for hard tasks. <span class="tag t-fact">Sourced</span></p></div>
+      <div class="card"><h3>Fourier GR-3 Care-bot</h3><p>A 165 cm care humanoid with about 3 hours of runtime, aimed first at eldercare facilities and hospitals. It is announced but not yet in wide commercial use. Prices quoted by resellers range from about $100k to $250k. <span class="tag t-syn">Unverified pricing</span></p></div>
+      <div class="card"><h3>ElliQ · New York State</h3><p>The NY State Office for the Aging has run an ElliQ program since 2022 and reports a large drop in loneliness. The data are self-reported, co-published with the vendor, and have no control group. <span class="tag t-vend">Vendor-linked data</span></p></div>
+      <div class="card"><h3>Tesla Optimus &amp; Figure 03</h3><p>Optimus is not commercialized, and Tesla's timelines have slipped repeatedly. Figure says it had delivered 350+ units by April 2026, mainly to factories such as BMW Spartanburg; home use is still in alpha. <span class="tag t-fact">Sourced</span></p></div>
+      <div class="card"><h3>China's national pilot</h3><p>A 2025–2027 elder-care robot pilot requires each home product to be tested in at least 200 households. Shenzhen Zuowei showed humanoid nursing robots in June 2026. <span class="tag t-fact">Sourced</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDICINE -->
+<section id="medicine">
+  <div class="wrap">
+    <div class="kicker">05 · Medical breakthroughs</div>
+    <h2>The quiet revolution: catching decline earlier</h2>
+    <p class="lead">For care demand, the biggest change by 2030 is probably not a cure. It is cheap, early diagnosis plus prevention, which moves care into the home years earlier.</p>
+    <div class="tbl"><table>
+      <tr><th>Technology</th><th>Status</th><th>What we know</th></tr>
+      <tr><td><strong>Alzheimer's blood tests (p-tau217)</strong></td><td><span class="tag t-fact">Established</span></td><td>FDA cleared Fujirebio's Lumipulse test in May 2025 and Roche's Elecsys pTau217 in 2026. Routine primary-care screening by 2030 is likely.</td></tr>
+      <tr><td><strong>Anti-amyloid antibodies</strong></td><td><span class="tag t-fact">Established</span> value debated</td><td>Lecanemab and donanemab are approved and slow decline modestly. Experts still argue about how much benefit patients get.</td></tr>
+      <tr><td><strong>GLP-1 drugs and dementia</strong></td><td>Failed in symptomatic AD</td><td>Semaglutide missed its endpoint in the EVOKE trials (Nov 2025). Prevention is untested. Muscle loss on GLP-1s is a frailty risk for the very old.</td></tr>
+      <tr><td><strong>Remote patient monitoring</strong></td><td><span class="tag t-fact">Established</span></td><td>From January 2026, Medicare pays for monitoring with as few as 2 days of data a month (new codes 99445, 99470).</td></tr>
+      <tr><td><strong>Radar fall detection, wearables</strong></td><td>Established → default by 2030</td><td>Camera-free sensing in homes and care facilities.</td></tr>
+      <tr><td><strong>AI-discovered drugs</strong></td><td><span class="tag t-fcst">Likely ~2030–31</span></td><td>Insilico's rentosertib (lung fibrosis) entered Phase 3 in Sept 2026, with primary completion expected around Oct 2029.</td></tr>
+      <tr><td><strong>In-body gene editing</strong></td><td><span class="tag t-fcst">Plausible by 2035</span></td><td>Verve's (now Lilly's) one-shot LDL lowering is promising. Intellia's program had a patient death and an FDA hold in 2025, so safety is the gate.</td></tr>
+      <tr><td><strong>Brain-computer interfaces</strong></td><td><span class="tag t-fcst">Plausible by 2035</span> for paralysis</td><td>Neuralink, Synchron and Precision target severe paralysis and ALS. Mainstream aging use is speculative.</td></tr>
+      <tr><td><strong>Senolytics, reprogramming, longevity drugs</strong></td><td><span class="tag t-syn">Speculative</span></td><td>Altos, Retro, NewLimit and Calico are well funded. No approvals are expected by 2035, and "biological age" clocks are biomarkers, not outcomes.</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="kicker">06 · Inside the machine</div>
+    <h2>Memory and touch, not intelligence, are the bottleneck</h2>
+    <div class="grid g2">
+      <div class="card accent"><h3>The brain</h3><p>NVIDIA Jetson Thor delivers about 2,070 FP4 TFLOPS but only 273 GB/s of memory bandwidth. A 7B-parameter robot model can take longer to read its own weights than one 20 ms control loop allows. <strong>Bandwidth, not TOPS, limits the robot.</strong> <span class="tag t-syn">Omdia analysis</span></p></div>
+      <div class="card warm"><h3>The sense of touch</h3><p>A humanoid carries 6–12 cameras, radar, force/torque sensors in its wrists and ankles, about 28 joint-torque sensors and tactile skin. Low-cost force and touch sensing is not solved at scale, and elder care needs exactly that: gentle, precise force. <span class="tag t-syn">Omdia analysis</span></p></div>
+      <div class="card gold"><h3>The cost curve</h3><p>Total sensor cost per humanoid is forecast to fall from about $3,500 today to about $350 by 2035. Solid-state lidar falls from about $5,000 to about $50. Consumer humanoids fall below $20k around 2028. <span class="tag t-fcst">Forecast (Omdia)</span></p></div>
+      <div class="card"><h3>The battery</h3><p>About 3 hours of runtime (GR-3) is a care-specific weakness. A night patrol needs 8+ hours or automatic docking. <span class="tag t-syn">Our view</span></p></div>
+    </div>
+    <h3 style="margin-top:40px">How many humanoids? The forecasts disagree about 7x</h3>
+    <div class="tbl"><table>
+      <tr><th>Source</th><th>2030</th><th>2035</th></tr>
+      <tr><td>Omdia (Jan 2026)</td><td>—</td><td>2.6M units/yr; physical AI market $1.145T</td></tr>
+      <tr><td>Goldman Sachs (Feb 2024 base case)</td><td>&gt;250k shipments</td><td>1.4M units; $38B</td></tr>
+      <tr><td>Goldman Sachs (revised, Sept 2026, secondary report)</td><td>~890k units</td><td>~6.5M units; ~$138B</td></tr>
+      <tr><td>BofA Global Research</td><td>—</td><td>10M shipments/yr</td></tr>
+      <tr><td>Morgan Stanley</td><td>—</td><td>13M humanoids in use</td></tr>
+    </table></div>
+    <p class="note">All forecasts. Factories and logistics buy first in every one of them. Elder care is probably a low single-digit percentage of humanoid units by 2035. No source isolates that number. <span class="tag t-syn">Our view</span></p>
+  </div>
+</section>
+
+<!-- ECONOMICS & POLICY -->
+<section id="policy">
+  <div class="wrap">
+    <div class="kicker">07 · Money &amp; policy</div>
+    <h2>Care is the wedge market, because Asia subsidizes it</h2>
+    <p class="lead">The eldercare robot market is estimated to grow from about $3.6B (2026) to $10B+ (2035). <span class="tag t-fcst">Forecast (Omdia)</span></p>
+    <div class="grid g2">
+      <div class="card"><h3>Japan</h3><p>METI has a ¥387.3B FY2026 physical-AI budget and a target of about 10 million AI robots by 2040. A 44-member national platform is targeting operations in 2028. The health ministry has historically been more skeptical than the industry ministry, which has slowed adoption.</p></div>
+      <div class="card"><h3>China</h3><p>The State Council's 2025 elder-care reform guidelines, the 2025–2027 robot pilot and the January 2026 measures support putting rehab and nursing robots inside care institutions. The silver economy is officially a "key pillar" after 2035.</p></div>
+      <div class="card"><h3>Taiwan</h3><p>Long-Term Care 3.0 targets "10-minute care circles," under one day from hospital discharge to long-term care, and wider dementia eligibility. Foxconn's robots run inside the "Healthy Taiwan" program.</p></div>
+      <div class="card"><h3>US &amp; EU</h3><p>US Medicare pays for remote monitoring but not for humanoid or companion robots. The EU AI Act's high-risk rules start in Dec 2027 (Annex III) and Aug 2028 (AI in regulated products), after the Digital Omnibus delay.</p></div>
+    </div>
+    <p class="note" style="margin-top:18px">Our view: payment follows measured outcomes. Expect monitoring to be reimbursed by 2030 and task robots to be paid for by facility labor savings. Home humanoids will need subscriptions (like NEO's $499/month) or long-term-care insurance products that do not yet exist.</p>
+  </div>
+</section>
+
+<!-- ETHICS -->
+<section id="ethics">
+  <div class="wrap">
+    <div class="kicker">08 · Ethics &amp; the human touch</div>
+    <h2>Dignity first, then efficiency</h2>
+    <div class="grid g2">
+      <div class="card accent"><h3>Dignity</h3><p>Robots that touch people must be designed with carers, not for them. What carers value most is time for relationship, not task speed.</p></div>
+      <div class="card warm"><h3>Surveillance</h3><p>Ambient sensing is the most useful near-term technology and also the most invasive. Process video and health data on the device, inside the home. With teleoperated robots a stranger can see into the home, so consent and logging are essential.</p></div>
+      <div class="card gold"><h3>Honest companions</h3><p>AI companions create attachment. They should always say they are machines, and they should never fake a human relationship to increase engagement. EU AI Act transparency rules apply from August 2026.</p></div>
+      <div class="card"><h3>Jobs</h3><p>The evidence points away from mass job loss before 2035. One NBER study found robot-adopting Japanese nursing homes had 3–8% <em>more</em> staff. The real risks are deskilling and closer monitoring of workers.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY IN LIFE -->
+<section id="day">
+  <div class="wrap">
+    <div class="kicker">09 · A day in the life</div>
+    <h2>Mrs. Lin, 85, Taipei</h2>
+    <p class="lead">One person, two futures. Both are scenarios built from the evidence above. <span class="tag t-syn">Our view</span></p>
+    <div class="day">
+      <div class="card y2030">
+        <h3>2030</h3>
+        <p>A ceiling radar logs her sleep and walking overnight, with no camera. Her voice companion reminds her about her heart-health medicine and records her blood pressure from a cuffless wearable. A blood test two years ago flagged early amyloid, so a monthly memory check runs through the agent. A smart dispenser releases her pills.</p>
+        <p>A human aide visits three times a week, and a robot vacuum does the floors. If she falls, the radar calls for help within seconds, but a person still has to come and lift her. In hospital, Nurabot-type robots bring her medicine while nurses do the touching. <strong>There is no humanoid in her home.</strong></p>
+      </div>
+      <div class="card y2035">
+        <h3>2035</h3>
+        <p>Her daughter leases a home humanoid for perhaps $300–500 a month (our estimate, not a published forecast). It tidies, does laundry, fetches things and steadies her on the stairs. Getting her out of bed still uses a powered lift or a carer.</p>
+        <p>At her day-care center, certified physical AI robots help with transfers and night patrols. Her companion has long-term memory and talks to her doctors' AI. <strong>Her biggest gain since 2030 is not the robot.</strong> Her dementia was caught five years earlier, and her frailty was delayed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTRARIAN -->
+<section id="contrarian">
+  <div class="wrap">
+    <div class="kicker">10 · Contrarian takes</div>
+    <h2>What the hype gets wrong</h2>
+    <div class="takes">
+      <div class="take"><h3>Ambient AI plus simple robots beats humanoids until at least 2032</h3><p>About 47% of surveyed Japanese facilities use monitoring devices, while contact robots stalled near 10%. The cobot and mobile-robot wave is already here. The humanoid story is early.</p></div>
+      <div class="take"><h3>Drugs and diagnostics may cut demand more than robots add supply</h3><p>Every year that frailty is delayed removes a year of 24/7 care. The counterpoint: GLP-1s failed in symptomatic Alzheimer's, and muscle loss is a real risk for the very old.</p></div>
+      <div class="take"><h3>The bottleneck is memory and touch, not intelligence</h3><p>Robot DRAM is getting expensive and force/tactile sensing is not industrialized. Elder care needs gentle, precise force more than any factory job does.</p></div>
+      <div class="take"><h3>Teleoperation is the hidden business model</h3><p>Early home humanoids are partly remote-controlled. They are labor <em>arbitrage</em> (remote carers) before they become labor <em>replacement</em>.</p></div>
+      <div class="take"><h3>Demand independent proof</h3><p>The 30% nursing-workload cut and the large loneliness drops come from vendors or vendor partners, without control groups. They are encouraging, but they are not yet proven.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SISTER SITES -->
+<section id="future" class="sisters">
+  <div class="wrap">
+    <div class="kicker" style="color:#e9a07d">Keep exploring</div>
+    <h2>See the bigger picture</h2>
+    <p class="lead">Elder care is one part of a larger shift. Follow the same technologies into everyday life.</p>
+    <div class="grid g2" style="margin-top:28px">
+      <a class="sister" href="https://www.lifein2030.ai" target="_blank" rel="noopener">
+        <div class="url">lifein2030.ai →</div>
+        <p>The near future: AI in the walls.</p>
+        <ul><li>The invisible caregiver: radar, remote monitoring, voice agents</li><li>The p-tau217 decade: early dementia diagnosis</li><li>Hospitals as robot testbeds</li><li>Why Japan's care robots ended up in cupboards</li></ul>
+      </a>
+      <a class="sister" href="https://lifein2035.ai" target="_blank" rel="noopener">
+        <div class="url">lifein2035.ai →</div>
+        <p>The next step: physical AI walks in.</p>
+        <ul><li>The $20k humanoid arrives, in institutions first</li><li>2.6 million humanoids a year, and how many will care</li><li>Sensor cost from $3,500 to $350</li><li>ISO 13482 v2 and the EU AI Act: the license to touch</li></ul>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="sources" id="sources">
+  <div class="wrap">
+    <div class="kicker">Sources</div>
+    <h2>Where the numbers come from</h2>
+    <p class="note">Physical AI market, humanoid, sensor-cost and eldercare-robot figures come from Omdia research presented by Bruce Bateman ("Unlocking Physical AI," Oct 2026; "Physical AI in Japan," Jul 2026). Vendor figures are labeled as such. Forecasts are not facts. Please check primary sources before relying on any number.</p>
+    <ol>
+      <li><a href="https://population.un.org/wpp/assets/Files/WPP2024_Key-Messages.pdf">UN DESA, World Population Prospects 2024 — Key Messages</a></li>
+      <li><a href="https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/proj_23np?geo=EU27_2020&projection=BSL&sex=T&age=Y_GE65&age=Y_GE80&sinceTimePeriod=2030&untilTimePeriod=2035&format=JSON&lang=EN">Eurostat EUROPOP2023 projections</a></li>
+      <li><a href="https://www.ipss.go.jp/pp-zenkoku/j/zenkoku2023/pp2023_gaiyou.pdf">IPSS, Population Projections for Japan 2023</a></li>
+      <li><a href="https://agingstats.gov/docs/LatestReport/Excel/2024/Population.xlsx">US Federal Interagency Forum on Aging-Related Statistics</a></li>
+      <li><a href="https://english.www.gov.cn/news/202501/10/content_WS67805ca4c6d0868f4e8eea64.html">gov.cn — China elderly care reform guidelines</a></li>
+      <li><a href="https://rti.org.tw/en/news?pid=228978&uid=3">RTI — Taiwan NDC population projections</a></li>
+      <li><a href="https://www.taipeitimes.com/News/front/archives/2025/12/23/2003849347">Taipei Times — Taiwan dementia projections</a></li>
+      <li><a href="https://www.oecd.org/en/publications/beyond-applause-improving-working-conditions-in-long-term-care_27d33ab3-en/full-report/component-9.html">OECD — Beyond Applause: Long-Term Care Workforce</a></li>
+      <li><a href="https://www.digitaltoday.co.kr/en/view/125285/can-ai-robots-help-japan-tackle-care-worker-shortages-driven-by-ageing">Digital Today — Japan care-worker shortages</a></li>
+      <li><a href="https://nobusato.jp/en/blog/japan-care-workers-2040-shortfall">Analysis of MHLW 2040 care-worker need</a></li>
+      <li><a href="https://www.cornellpress.cornell.edu/robots-wont-save-japan-eldercare-reality-care-robots-james-wright-09-12-2023/">James Wright, Robots Won't Save Japan (Cornell, 2023)</a></li>
+      <li><a href="https://aparc.fsi.stanford.edu/asiahealthpolicy/node/21242">Stanford APARC — Eggleston et al., robots in Japanese nursing homes</a></li>
+      <li><a href="https://news.northeastern.edu/2026/05/22/physical-ai-explained-robotics/">Northeastern — Physical AI explained</a></li>
+      <li><a href="https://blogs.nvidia.com/blog/foxconn-smart-hospital-robot/">NVIDIA — Foxconn Nurabot</a></li>
+      <li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Foxconn-and-Taiwan-Medical-Centers-Bring-Agentic-and-Physical-AI-to-Healthy-Taiwan/default.aspx">NVIDIA / Foxconn — Healthy Taiwan (2026)</a></li>
+      <li><a href="https://www.cnn.com/2025/09/12/tech/taiwan-nursing-robots-nurabot-foxconn-nvidia-hnk-spc">CNN — Taiwan nursing robots</a></li>
+      <li><a href="https://physicalailab.io/en/1x-neo-price-preorder-delivery-status/">1X NEO price and delivery status tracker</a></li>
+      <li><a href="https://robozaps.com/products/fourier-gr-3">Fourier GR-3 product listing</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Optimus_(robot)">Tesla Optimus — overview</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Figure_AI">Figure AI — overview</a></li>
+      <li><a href="https://aging.ny.gov/news/nysofa-extends-partnership-provide-elliq-ai-companion-program-older-adults-announces-new">NYSOFA — ElliQ program</a></li>
+      <li><a href="https://triviumchina.com/2025/06/11/regulators-launch-pilot-program-for-elderly-care-robots/">Trivium China — elderly care robot pilot</a></li>
+      <li><a href="https://english.www.gov.cn/policies/policywatch/202604/29/content_WS69f19a6bc6d00ca5f9a0ab0c.html">gov.cn — silver economy roadmap (2026)</a></li>
+      <li><a href="https://www.taiwannews.com.tw/news/6059633">Taiwan News — Long-Term Care 3.0</a></li>
+      <li><a href="https://glp-1.science/blog/semaglutide-alzheimers-evoke-trial-results">EVOKE semaglutide Alzheimer's results</a></li>
+      <li><a href="https://clinicaltrials.gov/study/NCT07687459">ClinicalTrials.gov — rentosertib Phase 3</a></li>
+      <li><a href="https://www.sec.gov/Archives/edgar/data/1652130/000119312526076550/ntla-20251231.htm">Intellia FY2025 10-K</a></li>
+      <li><a href="https://www.nixonlawgroup.com/resources/cms-finalizes-2026-remote-monitoring-reimbursement-updates-what-changed-for-rpm-and-rtm">CMS 2026 remote monitoring codes</a></li>
+      <li><a href="https://www.goldmansachs.com/insights/articles/the-global-market-for-robots-could-reach-38-billion-by-2035">Goldman Sachs — humanoid robot market</a></li>
+      <li><a href="https://www.cnbc.com/2025/04/29/how-to-play-a-5-trillion-market-for-humanoid-robots-by-2050.html">CNBC — Morgan Stanley, BofA humanoid forecasts</a></li>
+      <li><a href="https://www.oecd.org/en/publications/health-at-a-glance-europe-2024_b3704e14-en/full-report/component-76.html">OECD — Health at a Glance: Europe 2024</a></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © 2026 ElderlyCare.io · Part of a series with <a href="https://www.lifein2030.ai">lifein2030.ai</a> and <a href="https://lifein2035.ai">lifein2035.ai</a> · Last updated November 2026. Forecasts change; this page is not medical advice.
+  </div>
+</footer>
+
+</body>
+</html>
