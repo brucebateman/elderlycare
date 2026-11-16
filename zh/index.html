@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ElderlyCare.io — 2030 年以後，我們將如何照顧長者</title>
+<meta name="description" content="機器人、實體 AI、環境感測與醫療突破：一份有來源依據、務實看待 2030 至 2035 年長者照護的觀點。">
+<meta property="og:title" content="ElderlyCare.io — 2030 年以後的長者照護">
+<meta property="og:description" content="到了 2030 年代中期，全球 80 歲以上的人口將比嬰兒還多。誰來照顧他們？">
+<meta property="og:url" content="https://www.elderlycare.io/zh/">
+<link rel="alternate" hreflang="en" href="https://www.elderlycare.io/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.elderlycare.io/zh/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1d2321; --muted:#56605c; --paper:#faf7f2; --card:#ffffff;
+  --line:#e4ddd2; --accent:#2f6f5e; --accent-soft:#e3efe9;
+  --warm:#c0643b; --warm-soft:#f7e6dc; --gold:#b8892b;
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.8 Inter,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+h1,h2,h3{font-family:Fraunces,"Noto Serif TC",Georgia,serif;line-height:1.3;margin:0 0 .5em}
+h1{font-size:clamp(2rem,4.6vw,3.3rem);font-weight:700}
+h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700}
+h3{font-size:1.25rem;font-weight:700}
+p{margin:0 0 1em}
+a{color:var(--accent)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{padding:80px 0;border-top:1px solid var(--line)}
+.kicker{font-size:.85rem;letter-spacing:.1em;color:var(--warm);font-weight:700;margin-bottom:.6em}
+.lead{font-size:1.15rem;color:var(--muted);max-width:760px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(250,247,242,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:Fraunces,serif;font-weight:700;font-size:1.25rem;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--accent)}
+nav ul{display:flex;gap:18px;list-style:none;margin:0 0 0 auto;padding:0;font-size:.9rem}
+nav ul a{text-decoration:none;color:var(--muted)}
+nav ul a:hover{color:var(--accent)}
+.lang{flex:none;padding:6px 14px;border:1.5px solid var(--accent);border-radius:999px;color:var(--accent);text-decoration:none;font-size:.85rem;font-weight:600;font-family:Inter,sans-serif}
+.lang:hover{background:var(--accent);color:#fff}
+@media(max-width:900px){nav ul{display:none}}
+
+/* hero */
+.hero{padding:110px 0 90px;border-top:none;background:
+  radial-gradient(circle at 85% 20%,var(--accent-soft) 0,transparent 45%),
+  radial-gradient(circle at 10% 90%,var(--warm-soft) 0,transparent 40%)}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-ghost{border:1.5px solid var(--accent);color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:56px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.stat b{display:block;font-family:Fraunces,serif;font-size:2rem;color:var(--accent);line-height:1.1}
+.stat span{font-size:.92rem;color:var(--muted)}
+
+/* confidence tags */
+.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;padding:2px 8px;border-radius:999px;vertical-align:middle;margin-left:6px;white-space:nowrap}
+.t-fact{background:#dfeee6;color:#24584a}
+.t-fcst{background:#e7e5f6;color:#4a4290}
+.t-syn{background:#f6ead2;color:#7a5513}
+.t-vend{background:#f7dfd6;color:#8a3b1d}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:.85rem;color:var(--muted);margin-top:18px;align-items:center}
+.legend .tag{margin-left:0}
+
+/* cards & grids */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.card.accent{border-top:5px solid var(--accent)}
+.card.warm{border-top:5px solid var(--warm)}
+.card.gold{border-top:5px solid var(--gold)}
+.card ul{padding-left:1.1em;margin:.4em 0 0}
+.card li{margin-bottom:.35em}
+.note{font-size:.88rem;color:var(--muted)}
+blockquote{margin:24px 0;padding:18px 24px;border-left:4px solid var(--warm);background:var(--warm-soft);border-radius:0 12px 12px 0;font-family:"Noto Serif TC",Fraunces,serif;font-size:1.2rem}
+
+/* tables */
+.tbl{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#f2ede4;font-weight:700;font-size:.85rem;letter-spacing:.03em}
+tr:last-child td{border-bottom:none}
+
+/* timeline */
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;margin-top:30px;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
+.layer{padding:26px;background:var(--card)}
+.layer:nth-child(2){background:#f3f8f5}
+.layer:nth-child(3){background:var(--accent-soft)}
+.layer .when{font-family:Fraunces,"Noto Serif TC",serif;font-size:1.5rem;color:var(--accent);font-weight:700}
+
+/* day in life */
+.day{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:800px){.day{grid-template-columns:1fr}}
+.day .card h3{font-size:1.6rem}
+.day .y2030 h3{color:var(--accent)}
+.day .y2035 h3{color:var(--warm)}
+
+/* contrarian */
+.takes{counter-reset:t}
+.take{position:relative;padding:22px 22px 22px 74px;background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:14px}
+.take::before{counter-increment:t;content:counter(t);position:absolute;left:22px;top:20px;width:36px;height:36px;border-radius:50%;background:var(--warm);color:#fff;font-weight:700;display:grid;place-items:center;font-family:Fraunces,serif}
+
+/* sister sites */
+.sisters{background:var(--ink);color:#f3efe8}
+.sisters h2,.sisters h3{color:#fff}
+.sisters .lead{color:#c9c3b8}
+.sister{display:block;text-decoration:none;color:#f3efe8;border:1px solid #3a4441;border-radius:18px;padding:28px;transition:.2s}
+.sister:hover{border-color:#8fc7b5;background:#252c2a}
+.sister .url{font-family:Fraunces,serif;font-size:1.7rem;color:#8fc7b5;font-weight:700}
+.sister ul{padding-left:1.1em;color:#c9c3b8;font-size:.95rem}
+
+/* sources */
+.sources ol{font-size:.86rem;color:var(--muted);columns:2;column-gap:40px;padding-left:1.2em}
+@media(max-width:800px){.sources ol{columns:1}}
+.sources li{break-inside:avoid;margin-bottom:.4em}
+footer{padding:40px 0;font-size:.85rem;color:var(--muted);border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Elderly<span>Care</span>.io</a>
+    <ul>
+      <li><a href="#gap">照護缺口</a></li>
+      <li><a href="#physical-ai">機器人與實體 AI</a></li>
+      <li><a href="#tasks">它們能做什麼</a></li>
+      <li><a href="#medicine">醫療</a></li>
+      <li><a href="#day">2030／2035 的一天</a></li>
+      <li><a href="#contrarian">逆向觀點</a></li>
+      <li><a href="#future">2030 · 2035</a></li>
+    </ul>
+    <a class="lang" href="/" hreflang="en" lang="en" aria-label="Switch to English">EN</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="kicker">長者照護 · 2030 – 2035</div>
+    <h1>到了 2030 年代中期，全球 80 歲以上的人口將比嬰兒還多。<br><em>誰來照顧他們？</em></h1>
+    <p class="lead">答案不是人形機器人，至少一開始不是。照護缺口會分層補上：先是居家的感測器與 AI，接著是執行特定任務的機器人，最後才是實體 AI，也就是擁有自主大腦的機器。以下告訴你哪些已經成真、哪些很可能發生、哪些仍是炒作。</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#physical-ai">機器人與實體 AI</a>
+      <a class="btn btn-ghost" href="#day">2030 與 2035 的一天</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>~2.65 億</b><span>2030 年代中期全球 80 歲以上人口，超過所有嬰兒人數（聯合國 WPP 2024）</span></div>
+      <div class="stat"><b>272 萬</b><span>日本估計 2040 年度所需的照護人力，比 2022 年度多 57 萬（厚生勞動省）</span></div>
+      <div class="stat"><b>+1,350 萬</b><span>OECD 國家到 2040 年需新增的長照人力，才能維持現有比例（OECD）</span></div>
+      <div class="stat"><b>~10%</b><span>2019 年日本導入任何照護機器人的照護機構比例；移位機器人僅 2.3%</span></div>
+    </div>
+    <div class="legend">閱讀說明：
+      <span class="tag t-fact">有來源</span> 已發表的數據
+      <span class="tag t-fcst">預測</span> 具名來源的推估
+      <span class="tag t-vend">廠商說法</span> 企業自行公布，未經獨立查核
+      <span class="tag t-syn">我們的觀點</span> 分析與綜合判斷
+    </div>
+  </div>
+</header>
+
+<!-- CARE GAP -->
+<section id="gap">
+  <div class="wrap">
+    <div class="kicker">01 · 照護缺口</div>
+    <h2>需要照顧的人已經出生了，照顧他們的人卻還沒有。</h2>
+    <p class="lead">2035 年時 80 歲以上的每一個人，今天都已經在世，因此這些是所有預測中最可靠的數字之一。真正的問題是：誰來照顧他們。</p>
+    <div class="tbl"><table>
+      <tr><th>地區</th><th>2030</th><th>2035</th><th>來源</th></tr>
+      <tr><td>全球，80 歲以上</td><td>—</td><td>2030 年代中期約 2.65 億</td><td>聯合國《世界人口展望 2024》 <span class="tag t-fact">有來源</span></td></tr>
+      <tr><td>歐盟 27 國，65 歲以上</td><td>1.072 億（23.7%）</td><td>1.154 億（25.5%）</td><td>Eurostat EUROPOP2023 <span class="tag t-fcst">預測</span></td></tr>
+      <tr><td>歐盟 27 國，80 歲以上</td><td>3,110 萬（6.9%）</td><td>3,510 萬（7.8%）</td><td>Eurostat EUROPOP2023 <span class="tag t-fcst">預測</span></td></tr>
+      <tr><td>日本，65 歲以上</td><td>3,696 萬（30.8%）</td><td>3,773 萬（32.3%）</td><td>國立社會保障・人口問題研究所 2023 中推估 <span class="tag t-fcst">預測</span></td></tr>
+      <tr><td>美國，65 歲以上</td><td>7,120 萬（85 歲以上：860 萬）</td><td>—</td><td>美國人口普查局 NP2023（經 agingstats.gov） <span class="tag t-fcst">預測</span></td></tr>
+      <tr><td>中國，60 歲以上</td><td>—</td><td>超過 4 億（超過 30%）</td><td>國家衛生健康委員會 <span class="tag t-fcst">預測</span></td></tr>
+      <tr><td>台灣，65 歲以上</td><td>—</td><td>2,197 萬人口中佔 28.7%</td><td>國家發展委員會 <span class="tag t-fcst">預測</span></td></tr>
+      <tr><td>南韓，65 歲以上</td><td>—</td><td>2036 年達 30%</td><td>韓國統計廳中推估 <span class="tag t-fcst">預測</span></td></tr>
+    </table></div>
+    <div class="grid g3">
+      <div class="card accent"><h3>瓶頸是人力，不是錢</h3><p>日本和台灣付得起照護費用，卻找不到足夠的人手。2026 年 8 月，日本照護職缺的求才求職比約為 3.9，所有職業平均約為 1.1。照護人員的薪資約只有全產業平均的 79%。 <span class="tag t-fact">有來源（二手）</span></p></div>
+      <div class="card warm"><h3>家庭默默扛起重擔</h3><p>在歐盟，家人無償照護的價值約佔 GDP 的 2.5%，超過公共長照支出。而公共長照支出預計到 2070 年將從 GDP 的 1.7% 升至 2.6%。 <span class="tag t-fact">有來源（歐盟執委會，經 OECD）</span></p></div>
+      <div class="card gold"><h3>台灣的時鐘走得特別快</h3><p>2026 年台灣約 3.2 名工作年齡人口扶養 1 名長者，而且比例持續下降。失智人口約 35 萬，預計 2031 年將超過 47 萬。 <span class="tag t-fcst">預測（國發會／衛福部）</span></p></div>
+    </div>
+    <p class="note" style="margin-top:18px">注意：日本的 57 萬人是依現行照護模式計算出的<em>需求</em>，並不是職缺空缺的預測。官方也沒有估計科技能取代其中多少工作。</p>
+  </div>
+</section>
+
+<!-- ROBOTS VS PHYSICAL AI -->
+<section id="physical-ai">
+  <div class="wrap">
+    <div class="kicker">02 · 分清差別</div>
+    <h2>機器人不等於實體 AI</h2>
+    <p class="lead">大家常把兩者都叫作「機器人」，但它們是不同的機器。這個差別，決定了什麼東西能安全地照顧一個人。</p>
+    <blockquote>實體 AI 是一台擁有自主大腦的裝置。它能自己感知、推理、規劃並行動，環境改變時也能自行調整恢復。傳統機器人則只會照固定程式運作，或由人遠端操控。</blockquote>
+    <div class="grid g3">
+      <div class="card warm">
+        <h3>傳統機器人</h3>
+        <p><strong>有身體，沒有自己的大腦。</strong>它能非常可靠地重複相同步驟，但只要房間、人或任務一改變，它就不知所措。</p>
+        <ul><li>PARO 海豹療癒機器人</li><li>移位與轉位機器人（RIBA／Robear、富士「Hug」）</li><li>Panasonic Resyone 床椅一體機</li><li>自動配藥機</li><li>任何正由遠端真人操控的人形機器人</li></ul>
+      </div>
+      <div class="card gold">
+        <h3>環境 AI</h3>
+        <p><strong>有大腦，沒有身體。</strong>它能感測和推理，卻無法移動任何東西。在 2030 年，大部分的工作將由這第三類承擔。</p>
+        <ul><li>毫米波雷達跌倒偵測（不用攝影機）</li><li>ElliQ 類型的語音陪伴裝置</li><li>遠距病患監測、穿戴裝置</li><li>大型語言模型健康與記憶助理</li></ul>
+      </div>
+      <div class="card accent">
+        <h3>實體 AI</h3>
+        <p><strong>大腦加身體。</strong>內建的基礎模型（視覺-語言-動作模型或世界模型）能看懂場景、理解目標、規劃並執行動作，遇到意外狀況也能自行恢復。</p>
+        <ul><li>鴻海／川崎 Nurabot（台灣醫院病房）</li><li>傅利葉 GR-3 照護機器人</li><li>搭載 Helix 的 Figure 03</li><li>自主運作時的 1X NEO</li><li>中國作為科技「天樞」／「天璣」人形護理機器人</li></ul>
+      </div>
+    </div>
+    <div class="tbl"><table>
+      <tr><th></th><th>傳統照護機器人</th><th>實體 AI 照護系統</th></tr>
+      <tr><td><strong>控制方式</strong></td><td>固定程式或真人遠端操控</td><td>內建 AI 模型自行感知、規劃、行動、恢復</td></tr>
+      <tr><td><strong>運算</strong></td><td>微控制器／小型晶片</td><td>NVIDIA Jetson Orin／Thor 等級，40–130 瓦，裝在整機 500–1,000 瓦的機器人內</td></tr>
+      <tr><td><strong>為何要在機上運算？</strong></td><td>—</td><td>控制迴圈需約 10 毫秒，雲端來回卻要 50–200 毫秒。影像與健康資料也應該留在家中。</td></tr>
+      <tr><td><strong>失誤方式</strong></td><td>僵化，常常反而增加照護人員的工作</td><td>會出現機率性錯誤，因此需要嚴格的安全防護範圍</td></tr>
+      <tr><td><strong>安全規範</strong></td><td>ISO 13482（2014）</td><td>ISO 13482 第二版（2026 年 9 月進入最終投票）、歐盟 AI 法案高風險規則自 2027 年 12 月／2028 年 8 月起適用</td></tr>
+      <tr><td><strong>實證</strong></td><td>數十年試辦，採用率低</td><td>數個月的醫院數據，幾乎沒有居家數據</td></tr>
+    </table></div>
+    <div class="card" style="background:var(--warm-soft);border-color:#ecd2c3">
+      <h3>遠端操控的陷阱</h3>
+      <p>一台正由遠端真人操控的人形機器人，在那一刻就是<em>傳統</em>機器人，就算它看起來再未來感也一樣。第一批居家人形機器人，例如 1X NEO，遇到困難任務時仍仰賴遠端操作員。所以真正該問的不是「它是不是自主的？」，而是<strong>「有多少比例的任務時間是自主完成的？」</strong> <span class="tag t-syn">我們的觀點</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- LAYERS -->
+<section id="layers">
+  <div class="wrap">
+    <div class="kicker">03 · 如何到來</div>
+    <h2>是三個層次，不是一台機器人</h2>
+    <p class="lead">限制不在於 AI 有多聰明，而在於安全驗證、給付制度、單位成本，以及能否融入照護人員真實的工作流程。</p>
+    <div class="layers">
+      <div class="layer"><div class="when">現在</div><h3>感測器與軟體</h3><p>監測、跌倒偵測、語音助理、機構內物流機器人。在日本，受訪機構中約 47% 已使用監測設備。 <span class="tag t-fact">有來源（厚生勞動省 2026）</span></p></div>
+      <div class="layer"><div class="when">2027–2030</div><h3>任務型機器人</h3><p>行動輔助、移位支援、復健外骨骼、醫院配送機器人、夜間巡房。 <span class="tag t-fcst">預測</span></p></div>
+      <div class="layer"><div class="when">2030+</div><h3>接觸式照護人形機器人</h3><p>在經濟效益與安全認證都過關的特定角色中導入人形機器人。日本、中國與台灣的照護機構會最先採用。 <span class="tag t-fcst">預測</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TASKS -->
+<section id="tasks">
+  <div class="wrap">
+    <div class="kicker">04 · 機器人與實體 AI 實際會做什麼</div>
+    <h2>逐項任務：2030 與 2035</h2>
+    <p class="lead">先看失敗的例子。在日本一家照護機構，員工拒絕使用移位機器人，因為它搬動住民的方式「像在搬行李」（James Wright，《Robots Won't Save Japan》，2023）。許多買來的機器人只用了幾個星期就被鎖進櫃子。感測器的採用率高，會接觸人體的機器人採用率低，這個落差才是關鍵事實。</p>
+    <div class="tbl"><table>
+      <tr><th>任務</th><th>2030 — 很可能</th><th>2035 — 有可能</th></tr>
+      <tr><td><strong>移位與轉位</strong></td><td>機構內使用電動移位機與床椅轉換系統；照護者外骨骼；居家少用</td><td>經認證的日本與中國機構導入實體 AI 移位輔助</td></tr>
+      <tr><td><strong>行動能力</strong></td><td>復健外骨骼成為診所標配（傅利葉、CYBERDYNE）</td><td>消費級防跌穿戴裝置與軟式外骨骼衣</td></tr>
+      <tr><td><strong>跌倒</strong></td><td>不用攝影機的毫米波雷達成為照護機構與許多家庭的標準配備</td><td>從步態變化提前預測，而不只是事後偵測</td></tr>
+      <tr><td><strong>夜間巡房</strong></td><td>日本與台灣機構以感測器加上移動機器人巡房</td><td>串聯能實際出手處理的機器人</td></tr>
+      <tr><td><strong>用藥</strong></td><td>智慧配藥機加遠距監測；醫院配送機器人（Nurabot、Diligent Moxi）</td><td>居家機器人取藥並核對劑量</td></tr>
+      <tr><td><strong>餵食、沐浴、如廁</strong></td><td>大多仍由人力完成，搭配輔具</td><td>首批小範圍試辦；靈巧度與法律責任是限制</td></tr>
+      <tr><td><strong>家務</strong></td><td>早期採用者使用遠端輔助的人形機器人；掃地機器人</td><td>約 2 萬美元以下的消費級人形機器人半自主地洗衣、整理</td></tr>
+      <tr><td><strong>陪伴與認知</strong></td><td>ElliQ 類型助理、大型語言模型陪伴、失智照護中的 PARO</td><td>具記憶與健康指導能力的實體陪伴機器人</td></tr>
+    </table></div>
+
+    <h3 style="margin-top:40px">誰在打造這些產品（2026 年 11 月現況）</h3>
+    <div class="grid g2">
+      <div class="card"><h3>鴻海 Nurabot · 台灣</h3><p>與川崎重工及台中榮民總醫院合作，採用 NVIDIA Jetson Orin。鴻海表示每天可執行 75–80 項任務，減少約 30% 護理工作量，每位護理師每天省下 2–3 小時。正透過「健康台灣」計畫擴展到更多醫院與長照據點。 <span class="tag t-vend">廠商說法</span></p></div>
+      <div class="card"><h3>1X NEO · 居家人形機器人</h3><p>售價 20,000 美元，或每月 499 美元。2025 年 10 月開放預購，年產能 1 萬台的工廠於 2026 年 4 月啟用。截至 2026 年 10 月中，我們找不到已交車給客戶的確認消息，而且遇到困難任務時仍仰賴遠端真人操作。 <span class="tag t-fact">有來源</span></p></div>
+      <div class="card"><h3>傅利葉 GR-3 照護機器人</h3><p>身高 165 公分的照護人形機器人，續航約 3 小時，首先鎖定長照機構與醫院。已發表但尚未大規模商用。經銷商報價約 10 萬至 25 萬美元不等。 <span class="tag t-syn">價格未經證實</span></p></div>
+      <div class="card"><h3>ElliQ · 美國紐約州</h3><p>紐約州老人局自 2022 年起推動 ElliQ 計畫，並表示孤獨感大幅下降。這些數據來自使用者自評、與廠商共同發表，而且沒有對照組。 <span class="tag t-vend">與廠商相關的數據</span></p></div>
+      <div class="card"><h3>Tesla Optimus 與 Figure 03</h3><p>Optimus 尚未商業化，而且 Tesla 的時程一再延後。Figure 表示到 2026 年 4 月已交付超過 350 台，主要用在 BMW 斯帕坦堡廠等工廠；居家用途仍在 alpha 測試階段。 <span class="tag t-fact">有來源</span></p></div>
+      <div class="card"><h3>中國國家試點</h3><p>2025–2027 年的養老機器人試點規定，每項居家產品都必須在至少 200 個家庭中測試。深圳作為科技於 2026 年 6 月發表了人形護理機器人。 <span class="tag t-fact">有來源</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDICINE -->
+<section id="medicine">
+  <div class="wrap">
+    <div class="kicker">05 · 醫療突破</div>
+    <h2>安靜的革命：更早發現退化</h2>
+    <p class="lead">對照護需求而言，2030 年前最大的改變可能不是治癒疾病，而是便宜的早期診斷加上預防，讓照護提早好幾年移到家中進行。</p>
+    <div class="tbl"><table>
+      <tr><th>技術</th><th>現況</th><th>目前所知</th></tr>
+      <tr><td><strong>阿茲海默症血液檢測（p-tau217）</strong></td><td><span class="tag t-fact">已確立</span></td><td>美國 FDA 於 2025 年 5 月核准富士瑞必歐的 Lumipulse 檢測，並於 2026 年核准羅氏的 Elecsys pTau217。2030 年前成為基層醫療的例行篩檢很有可能。</td></tr>
+      <tr><td><strong>抗類澱粉蛋白抗體</strong></td><td><span class="tag t-fact">已確立</span> 價值仍有爭議</td><td>Lecanemab 和 donanemab 已核准上市，能稍微減緩退化。專家對病人實際受益多少仍有爭論。</td></tr>
+      <tr><td><strong>GLP-1 藥物與失智症</strong></td><td>在已有症狀的阿茲海默症中失敗</td><td>Semaglutide 在 EVOKE 試驗中未達主要指標（2025 年 11 月）。預防效果尚未經過測試。使用 GLP-1 造成的肌肉流失，對高齡長者是衰弱風險。</td></tr>
+      <tr><td><strong>遠距病患監測</strong></td><td><span class="tag t-fact">已確立</span></td><td>自 2026 年 1 月起，美國聯邦醫療保險（Medicare）只要每月有 2 天的數據就給付監測（新代碼 99445、99470）。</td></tr>
+      <tr><td><strong>雷達跌倒偵測、穿戴裝置</strong></td><td>已確立 → 2030 年成為標準配備</td><td>家庭與照護機構採用不需攝影機的感測方式。</td></tr>
+      <tr><td><strong>AI 研發的新藥</strong></td><td><span class="tag t-fcst">很可能約 2030–31</span></td><td>英矽智能的 rentosertib（肺纖維化）於 2026 年 9 月進入第三期試驗，主要完成時間預計約為 2029 年 10 月。</td></tr>
+      <tr><td><strong>體內基因編輯</strong></td><td><span class="tag t-fcst">2035 年前有可能</span></td><td>Verve（現屬禮來）的單次降低 LDL 療法前景看好。Intellia 的計畫在 2025 年出現一名病患死亡並遭 FDA 暫停，因此安全性是關卡。</td></tr>
+      <tr><td><strong>腦機介面</strong></td><td><span class="tag t-fcst">2035 年前有可能</span> 用於癱瘓</td><td>Neuralink、Synchron 和 Precision 鎖定重度癱瘓與漸凍症。用於一般老化仍屬推測。</td></tr>
+      <tr><td><strong>清除衰老細胞藥物、細胞重編程、長壽藥物</strong></td><td><span class="tag t-syn">推測</span></td><td>Altos、Retro、NewLimit 和 Calico 資金充足。預計 2035 年前不會有藥物核准，而「生物年齡」時鐘只是生物標記，不是臨床結果。</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="kicker">06 · 機器的內部</div>
+    <h2>瓶頸在記憶體和觸覺，不在智慧</h2>
+    <div class="grid g2">
+      <div class="card accent"><h3>大腦</h3><p>NVIDIA Jetson Thor 提供約 2,070 FP4 TFLOPS 的算力，但記憶體頻寬只有 273 GB/s。一個 70 億參數的機器人模型，光是讀一次自己的權重，花的時間就可能超過一個 20 毫秒的控制迴圈。<strong>限制機器人的是頻寬，不是 TOPS。</strong> <span class="tag t-syn">Omdia 分析</span></p></div>
+      <div class="card warm"><h3>觸覺</h3><p>一台人形機器人配備 6–12 顆攝影機、雷達、手腕與腳踝的力／扭矩感測器、約 28 個關節扭矩感測器，以及觸覺皮膚。低成本的力覺與觸覺感測尚未能大規模量產，而長者照護需要的正是這種輕柔、精準的力道。 <span class="tag t-syn">Omdia 分析</span></p></div>
+      <div class="card gold"><h3>成本曲線</h3><p>每台人形機器人的感測器總成本，預計從今天約 3,500 美元降到 2035 年約 350 美元。固態光達從約 5,000 美元降到約 50 美元。消費級人形機器人約在 2028 年降到 2 萬美元以下。 <span class="tag t-fcst">預測（Omdia）</span></p></div>
+      <div class="card"><h3>電池</h3><p>約 3 小時的續航力（GR-3）是照護場景特有的弱點。夜間巡房需要 8 小時以上，或能自動回充。 <span class="tag t-syn">我們的觀點</span></p></div>
+    </div>
+    <h3 style="margin-top:40px">人形機器人會有多少台？各家預測相差約 7 倍</h3>
+    <div class="tbl"><table>
+      <tr><th>來源</th><th>2030</th><th>2035</th></tr>
+      <tr><td>Omdia（2026 年 1 月）</td><td>—</td><td>每年 260 萬台；實體 AI 市場 1.145 兆美元</td></tr>
+      <tr><td>高盛（2024 年 2 月基本情境）</td><td>出貨超過 25 萬台</td><td>140 萬台；380 億美元</td></tr>
+      <tr><td>高盛（2026 年 9 月修正，二手報導）</td><td>約 89 萬台</td><td>約 650 萬台；約 1,380 億美元</td></tr>
+      <tr><td>美銀全球研究</td><td>—</td><td>每年出貨 1,000 萬台</td></tr>
+      <tr><td>摩根士丹利</td><td>—</td><td>1,300 萬台人形機器人投入使用</td></tr>
+    </table></div>
+    <p class="note">以上皆為預測。每一份預測都是工廠與物流業者先買。到 2035 年，長者照護大概只佔人形機器人出貨的個位數百分比，但沒有任何來源單獨估算這個數字。 <span class="tag t-syn">我們的觀點</span></p>
+  </div>
+</section>
+
+<!-- ECONOMICS & POLICY -->
+<section id="policy">
+  <div class="wrap">
+    <div class="kicker">07 · 資金與政策</div>
+    <h2>照護是切入市場，因為亞洲政府有補助</h2>
+    <p class="lead">照護機器人市場預估將從約 36 億美元（2026）成長到 100 億美元以上（2035）。 <span class="tag t-fcst">預測（Omdia）</span></p>
+    <div class="grid g2">
+      <div class="card"><h3>日本</h3><p>經濟產業省 2026 年度的實體 AI 預算為 3,873 億日圓，目標在 2040 年前達到約 1,000 萬台 AI 機器人。一個有 44 個成員的國家平台目標在 2028 年開始運作。厚生勞動省過去一向比經濟產業省保守，這拖慢了導入速度。</p></div>
+      <div class="card"><h3>中國</h3><p>國務院 2025 年的養老服務改革意見、2025–2027 年機器人試點，以及 2026 年 1 月的措施，都支持將復健與護理機器人導入照護機構。銀髮經濟被官方定位為 2035 年後的「重要支柱」。</p></div>
+      <div class="card"><h3>台灣</h3><p>長照 3.0 的目標包括「10 分鐘照護圈」、出院到銜接長照不超過一天，以及擴大失智症的服務對象。鴻海的機器人正在「健康台灣」計畫中運作。</p></div>
+      <div class="card"><h3>美國與歐盟</h3><p>美國 Medicare 給付遠距監測，但不給付人形或陪伴機器人。在數位綜合法案延後之後，歐盟 AI 法案的高風險規則將於 2027 年 12 月（附件三）及 2028 年 8 月（受監管產品中的 AI）開始適用。</p></div>
+    </div>
+    <p class="note" style="margin-top:18px">我們的觀點：給付跟著可量測的成效走。預計 2030 年前監測服務會獲得給付，任務型機器人則靠機構省下的人力成本來支付。居家人形機器人需要訂閱制（像 NEO 每月 499 美元），或目前還不存在的長照保險商品。</p>
+  </div>
+</section>
+
+<!-- ETHICS -->
+<section id="ethics">
+  <div class="wrap">
+    <div class="kicker">08 · 倫理與人的溫度</div>
+    <h2>尊嚴優先，效率其次</h2>
+    <div class="grid g2">
+      <div class="card accent"><h3>尊嚴</h3><p>會接觸人體的機器人，必須和照護人員一起設計，而不是替他們設計。照護人員最重視的是經營關係的時間，而不是做事的速度。</p></div>
+      <div class="card warm"><h3>監控</h3><p>環境感測是近期最有用的技術，也是最侵入隱私的技術。影像與健康資料應在家中的裝置上處理。使用遠端操控的機器人時，陌生人可以看見家裡的狀況，因此取得同意與留存紀錄非常重要。</p></div>
+      <div class="card gold"><h3>誠實的陪伴者</h3><p>AI 陪伴裝置會讓人產生依戀。它們應該隨時表明自己是機器，也絕不能為了提高使用黏著度而假裝成人與人的關係。歐盟 AI 法案的透明度規則自 2026 年 8 月起適用。</p></div>
+      <div class="card"><h3>工作機會</h3><p>證據顯示，2035 年前不太會出現大規模失業。一項 NBER 研究發現，導入機器人的日本照護機構反而多了 3–8% 的員工。真正的風險是技能退化，以及對員工更嚴密的監控。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY IN LIFE -->
+<section id="day">
+  <div class="wrap">
+    <div class="kicker">09 · 生活中的一天</div>
+    <h2>林奶奶，85 歲，住在台北</h2>
+    <p class="lead">同一個人，兩種未來。兩者都是根據上述證據建構的情境。 <span class="tag t-syn">我們的觀點</span></p>
+    <div class="day">
+      <div class="card y2030">
+        <h3>2030</h3>
+        <p>天花板上的雷達整夜記錄她的睡眠和走路狀況，完全不用攝影機。她的語音陪伴助理提醒她吃心血管保健藥，並從無袖帶穿戴裝置記錄她的血壓。兩年前的一次血液檢查發現早期類澱粉蛋白，所以助理每個月會幫她做一次記憶檢查。智慧配藥機會按時送出藥物。</p>
+        <p>一位照服員每週來三次，掃地機器人負責拖地。如果她跌倒，雷達會在幾秒內呼叫救援，但還是得有人來把她扶起來。住院時，Nurabot 這類機器人負責送藥，需要碰觸病人的工作則由護理師來做。<strong>她家裡沒有人形機器人。</strong></p>
+      </div>
+      <div class="card y2035">
+        <h3>2035</h3>
+        <p>她的女兒以每月大約 300–500 美元租了一台居家人形機器人（這是我們的估計，不是已發表的預測）。它會整理房間、洗衣服、幫忙拿東西，也能在樓梯上扶穩她。把她從床上扶起來，仍然要靠電動移位機或照護人員。</p>
+        <p>在她的日照中心，經過認證的實體 AI 機器人協助移位和夜間巡房。她的陪伴助理有了長期記憶，並能和醫師的 AI 溝通。<strong>2030 年以來，她最大的收穫不是機器人</strong>，而是失智症提早五年被發現，衰弱也被延緩了。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTRARIAN -->
+<section id="contrarian">
+  <div class="wrap">
+    <div class="kicker">10 · 逆向觀點</div>
+    <h2>炒作沒說對的地方</h2>
+    <div class="takes">
+      <div class="take"><h3>至少到 2032 年，環境 AI 加上簡單的機器人會勝過人形機器人</h3><p>日本受訪機構中約 47% 使用監測設備，而接觸式機器人的採用率卻停在 10% 左右。協作機器人與移動機器人的浪潮已經來了，人形機器人的故事還在很早期。</p></div>
+      <div class="take"><h3>藥物與診斷減少的需求，可能比機器人增加的供給還多</h3><p>每延緩一年衰弱，就少了一年 24 小時的照護。反方觀點：GLP-1 在已有症狀的阿茲海默症中失敗了，而肌肉流失對高齡長者是真實的風險。</p></div>
+      <div class="take"><h3>瓶頸在記憶體和觸覺，不在智慧</h3><p>機器人用的 DRAM 越來越貴，力覺／觸覺感測也還沒能量產。長者照護比任何工廠工作都更需要輕柔而精準的力道。</p></div>
+      <div class="take"><h3>遠端操控是隱藏的商業模式</h3><p>早期的居家人形機器人有一部分是遠端控制的。它們先是人力<em>套利</em>（遠端照護人員），之後才會變成人力<em>替代</em>。</p></div>
+      <div class="take"><h3>要求獨立的證明</h3><p>減少 30% 護理工作量、孤獨感大幅下降等數據，都來自廠商或廠商的合作夥伴，而且沒有對照組。結果令人鼓舞，但還沒有被證實。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SISTER SITES -->
+<section id="future" class="sisters">
+  <div class="wrap">
+    <div class="kicker" style="color:#e9a07d">繼續探索</div>
+    <h2>看見更大的圖像</h2>
+    <p class="lead">長者照護只是一場更大轉變的一部分。跟著同樣的技術，走進日常生活。</p>
+    <div class="grid g2" style="margin-top:28px">
+      <a class="sister" href="https://www.lifein2030.ai" target="_blank" rel="noopener">
+        <div class="url">lifein2030.ai →</div>
+        <p>不遠的未來：藏在牆裡的 AI。</p>
+        <ul><li>看不見的照護者：雷達、遠距監測、語音助理</li><li>p-tau217 的十年：失智症早期診斷</li><li>醫院成為機器人試驗場</li><li>為什麼日本的照護機器人最後被鎖進櫃子</li></ul>
+      </a>
+      <a class="sister" href="https://lifein2035.ai" target="_blank" rel="noopener">
+        <div class="url">lifein2035.ai →</div>
+        <p>下一步：實體 AI 走進來。</p>
+        <ul><li>2 萬美元的人形機器人來了，先進照護機構</li><li>每年 260 萬台人形機器人，其中有多少會從事照護</li><li>感測器成本從 3,500 美元降到 350 美元</li><li>ISO 13482 第二版與歐盟 AI 法案：「觸碰」的許可證</li></ul>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="sources" id="sources">
+  <div class="wrap">
+    <div class="kicker">資料來源</div>
+    <h2>這些數字從哪裡來</h2>
+    <p class="note">實體 AI 市場、人形機器人、感測器成本與照護機器人的數字，來自 Bruce Bateman 發表的 Omdia 研究（〈Unlocking Physical AI〉，2026 年 10 月；〈Physical AI in Japan〉，2026 年 7 月）。廠商數據均已標示。預測不等於事實。引用任何數字前，請先查核原始來源。以下來源多為英文。</p>
+    <ol>
+      <li><a href="https://population.un.org/wpp/assets/Files/WPP2024_Key-Messages.pdf">聯合國經濟和社會事務部，《世界人口展望 2024》重點摘要</a></li>
+      <li><a href="https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/proj_23np?geo=EU27_2020&projection=BSL&sex=T&age=Y_GE65&age=Y_GE80&sinceTimePeriod=2030&untilTimePeriod=2035&format=JSON&lang=EN">Eurostat EUROPOP2023 人口推估</a></li>
+      <li><a href="https://www.ipss.go.jp/pp-zenkoku/j/zenkoku2023/pp2023_gaiyou.pdf">國立社會保障・人口問題研究所，日本將來推計人口 2023</a></li>
+      <li><a href="https://agingstats.gov/docs/LatestReport/Excel/2024/Population.xlsx">美國聯邦老化相關統計跨部會論壇</a></li>
+      <li><a href="https://english.www.gov.cn/news/202501/10/content_WS67805ca4c6d0868f4e8eea64.html">中國政府網：養老服務改革意見</a></li>
+      <li><a href="https://rti.org.tw/en/news?pid=228978&uid=3">中央廣播電臺：國發會人口推估</a></li>
+      <li><a href="https://www.taipeitimes.com/News/front/archives/2025/12/23/2003849347">台北時報：台灣失智人口推估</a></li>
+      <li><a href="https://www.oecd.org/en/publications/beyond-applause-improving-working-conditions-in-long-term-care_27d33ab3-en/full-report/component-9.html">OECD：〈Beyond Applause〉長照人力報告</a></li>
+      <li><a href="https://www.digitaltoday.co.kr/en/view/125285/can-ai-robots-help-japan-tackle-care-worker-shortages-driven-by-ageing">Digital Today：日本照護人力短缺</a></li>
+      <li><a href="https://nobusato.jp/en/blog/japan-care-workers-2040-shortfall">厚生勞動省 2040 年照護人力需求分析</a></li>
+      <li><a href="https://www.cornellpress.cornell.edu/robots-wont-save-japan-eldercare-reality-care-robots-james-wright-09-12-2023/">James Wright，《Robots Won't Save Japan》（康乃爾大學出版社，2023）</a></li>
+      <li><a href="https://aparc.fsi.stanford.edu/asiahealthpolicy/node/21242">史丹佛大學 APARC：Eggleston 等人，日本照護機構中的機器人</a></li>
+      <li><a href="https://news.northeastern.edu/2026/05/22/physical-ai-explained-robotics/">美國東北大學：實體 AI 解說</a></li>
+      <li><a href="https://blogs.nvidia.com/blog/foxconn-smart-hospital-robot/">NVIDIA：鴻海 Nurabot</a></li>
+      <li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Foxconn-and-Taiwan-Medical-Centers-Bring-Agentic-and-Physical-AI-to-Healthy-Taiwan/default.aspx">NVIDIA／鴻海：健康台灣（2026）</a></li>
+      <li><a href="https://www.cnn.com/2025/09/12/tech/taiwan-nursing-robots-nurabot-foxconn-nvidia-hnk-spc">CNN：台灣護理機器人</a></li>
+      <li><a href="https://physicalailab.io/en/1x-neo-price-preorder-delivery-status/">1X NEO 價格與交貨狀態追蹤</a></li>
+      <li><a href="https://robozaps.com/products/fourier-gr-3">傅利葉 GR-3 產品頁</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Optimus_(robot)">Tesla Optimus 概覽</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Figure_AI">Figure AI 概覽</a></li>
+      <li><a href="https://aging.ny.gov/news/nysofa-extends-partnership-provide-elliq-ai-companion-program-older-adults-announces-new">紐約州老人局：ElliQ 計畫</a></li>
+      <li><a href="https://triviumchina.com/2025/06/11/regulators-launch-pilot-program-for-elderly-care-robots/">Trivium China：養老機器人試點</a></li>
+      <li><a href="https://english.www.gov.cn/policies/policywatch/202604/29/content_WS69f19a6bc6d00ca5f9a0ab0c.html">中國政府網：銀髮經濟路線圖（2026）</a></li>
+      <li><a href="https://www.taiwannews.com.tw/news/6059633">台灣英文新聞：長照 3.0</a></li>
+      <li><a href="https://glp-1.science/blog/semaglutide-alzheimers-evoke-trial-results">EVOKE 試驗：semaglutide 與阿茲海默症結果</a></li>
+      <li><a href="https://clinicaltrials.gov/study/NCT07687459">ClinicalTrials.gov：rentosertib 第三期試驗</a></li>
+      <li><a href="https://www.sec.gov/Archives/edgar/data/1652130/000119312526076550/ntla-20251231.htm">Intellia 2025 會計年度 10-K 年報</a></li>
+      <li><a href="https://www.nixonlawgroup.com/resources/cms-finalizes-2026-remote-monitoring-reimbursement-updates-what-changed-for-rpm-and-rtm">CMS 2026 年遠距監測給付代碼</a></li>
+      <li><a href="https://www.goldmansachs.com/insights/articles/the-global-market-for-robots-could-reach-38-billion-by-2035">高盛：人形機器人市場</a></li>
+      <li><a href="https://www.cnbc.com/2025/04/29/how-to-play-a-5-trillion-market-for-humanoid-robots-by-2050.html">CNBC：摩根士丹利、美銀的人形機器人預測</a></li>
+      <li><a href="https://www.oecd.org/en/publications/health-at-a-glance-europe-2024_b3704e14-en/full-report/component-76.html">OECD：《Health at a Glance: Europe 2024》</a></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © 2026 ElderlyCare.io · 與 <a href="https://www.lifein2030.ai">lifein2030.ai</a> 及 <a href="https://lifein2035.ai">lifein2035.ai</a> 同屬一個系列 · 最後更新：2026 年 11 月。預測會改變；本頁內容不構成醫療建議。
+  </div>
+</footer>
+
+</body>
+</html>
